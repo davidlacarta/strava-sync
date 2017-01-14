@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Strava Sync</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" rel="stylesheet"
+          media="screen"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <div class="athlete">
+            <img src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/8794671/4974614/1/large.jpg"
+                 th:src="${athlete.profile}"/>
+            <p><a class="btn btn-danger" role="button" th:href="@{/logout}">Logout</a></p>
+        </div>
+        <form class="form-signin" action="#" th:action="@{/user}" th:object="${user}" method="post">
+            <h3 class="form-signin-heading">Login decathlon</h3>
+            <label for="inputEmail" class="sr-only">email</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="email"
+                   th:field="*{idCoach}"/>
+            <label for="inputPassword" class="sr-only">password</label>
+            <input type="text" id="inputPassword" class="form-control" placeholder="password"
+                   th:field="*{passwordCoach}"/>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" th:field="*{sync}"/> synchronization
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">save</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

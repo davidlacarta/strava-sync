@@ -1,0 +1,103 @@
+databaseChangeLog:
+
+# User
+- changeSet:
+    id: create.table.User
+    author: david lacarta
+    changes:
+
+    - createTable:
+        tableName: USER
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: USER_ID
+            type: VARCHAR(255)
+
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: false
+            name: USER_ID_STRAVA
+            type: VARCHAR(255)
+
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: false
+            name: USER_CODE_STRAVA
+            type: VARCHAR(255)
+
+        - column:
+            constraints:
+              nullable: true
+              primaryKey: false
+            name: USER_ID_COACH
+            type: VARCHAR(255)
+
+        - column:
+            constraints:
+              nullable: true
+              primaryKey: false
+            name: USER_PASSWORD_COACH
+            type: VARCHAR(255)
+
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: false
+            name: USER_SYNC
+            type: BOOLEAN
+
+    - createTable:
+        tableName: ACTIVITY
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: ACTIVITY_ID
+            type: VARCHAR(255)
+
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: false
+            name: ACTIVITY_KEY_COACH
+            type: VARCHAR(255)
+
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: false
+            name: ACTIVITY_SYNC
+            type: BOOLEAN
+
+        - column:
+            constraints:
+              nullable: true
+            name: ACTIVITY_SYNC_DATE
+            type: datetime
+
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: false
+            name: ACTIVITY_USER
+            type: VARCHAR(255)
+
+- changeSet:
+    id: createForeignKey.from.activity.to.user
+    author: david lacarta
+    changes:
+
+    - addForeignKeyConstraint:
+        baseColumnNames: ACTIVITY_USER
+        baseTableName: ACTIVITY
+        constraintName: FK_ACTIVITY_USER
+        onDelete: CASCADE
+        onUpdate: RESTRICT
+        referencedColumnNames: USER_ID
+        referencedTableName: USER

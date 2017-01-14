@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+
+    <Properties>
+
+        <!-- Logs Base Path. Override with system property: -DlogsBasePath=/new/path -->
+        <Property name="logsBasePath">/logs</Property>
+
+    </Properties>
+
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- https://logging.apache.org/log4j/2.x/manual/layouts.html -->
+            <PatternLayout>
+                <pattern>
+                    %d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %t %c{1.} %m%n
+                </pattern>
+            </PatternLayout>
+        </Console>
+
+        <!--<RollingFile name="StravaSyncApp"-->
+        <!--append="true"-->
+        <!--fileName="${sys:logsBasePath}/stravasync.log"-->
+        <!--filePattern="${sys:logsBasePath}/stravasync.%d{yyyy-MM-dd-HH}.log">-->
+
+        <!--<PatternLayout>-->
+        <!--<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSSS} %p %c %m%n</Pattern>-->
+        <!--</PatternLayout>-->
+
+        <!--<Policies>-->
+        <!--<TimeBasedTriggeringPolicy/>-->
+        <!--</Policies>-->
+
+        <!--</RollingFile>-->
+
+    </Appenders>
+
+    <Loggers>
+
+        <!-- Spring Framework -->
+        <Logger name="org.springframework" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="StravaSyncApp"/>-->
+        </Logger>
+
+        <!-- Hibernate -->
+        <Logger name="org.hibernate" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="StravaSyncApp"/>-->
+        </Logger>
+
+        <!-- Hibernate SQL Queries -->
+        <Logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- StravaSyncApp logs -->
+        <Logger name="com.davidlacarta.strava.sync" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="StravaSyncApp"/>-->
+        </Logger>
+
+        <!-- Strava client logs -->
+        <Logger name="com.davidlacarta.strava.sync.client.strava" level="ERROR" additivity="false">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="StravaSyncApp"/>-->
+        </Logger>
+
+        <!-- Strava client logs -->
+        <Logger name="org.thymeleaf.cache" level="ERROR" additivity="false">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="StravaSyncApp"/>-->
+        </Logger>
+
+        <!-- Everything else (root logger) -->
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="StravaSyncApp"/>-->
+        </Root>
+
+    </Loggers>
+
+</Configuration>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.davidlacarta</groupId>
+        <artifactId>strava-sync</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>strava-sync-service</artifactId>
+
+    <packaging>jar</packaging>
+
+    <name>Strava Sync - Service</name>
+    <description>Strava Sync Service</description>
+
+    <dependencies>
+
+        <!-- Internal modules dependencies -->
+        <dependency>
+            <groupId>com.davidlacarta</groupId>
+            <artifactId>strava-sync-model</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.davidlacarta</groupId>
+            <artifactId>strava-sync-repository</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.davidlacarta</groupId>
+            <artifactId>strava-sync-client-strava</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.davidlacarta</groupId>
+            <artifactId>strava-sync-client-decathloncoach</artifactId>
+        </dependency>
+
+        <!-- To use Java 8 Dates with jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.sonatype.plexus/plexus-cipher -->
+        <dependency>
+            <groupId>org.sonatype.plexus</groupId>
+            <artifactId>plexus-cipher</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

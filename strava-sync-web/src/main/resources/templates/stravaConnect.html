@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Strava Sync</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" rel="stylesheet"
+          media="screen"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h1>Connect to Strava</h1>
+
+        <form class="form-signin" action="/connect/strava" method="POST">
+            <div class="formInfo">
+                <p>You aren't connected to Strava yet. Click the button to connect this application
+                    with
+                    your Strava account.</p>
+            </div>
+            <p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Connect to Strava
+                </button>
+            </p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
